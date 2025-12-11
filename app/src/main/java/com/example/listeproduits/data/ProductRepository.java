@@ -55,6 +55,26 @@ public class ProductRepository {
         products.add(new Product(8, "Clavier Mécanique RGB",
                 "Switchs mécaniques, rétroéclairage RGB, anti-ghosting",
                 159.99, "Accessoires", android.R.drawable.ic_menu_camera));
+
+        products.add(new Product(9, "Souris Gaming",
+                "Capteur 16000 DPI, 8 boutons programmables, éclairage RGB",
+                79.99, "Accessoires", android.R.drawable.ic_menu_compass));
+
+        products.add(new Product(10, "Écran 27\" 2K",
+                "Résolution 2560x1440, 144 Hz, temps de réponse 1 ms",
+                349.99, "Informatique", android.R.drawable.ic_menu_camera));
+
+        products.add(new Product(11, "Disque SSD externe",
+                "1 To, USB‑C 3.2, résistant aux chocs",
+                189.99, "Stockage", android.R.drawable.ic_menu_compass));
+
+        products.add(new Product(12, "Routeur Wi‑Fi 6",
+                "Débit jusqu'à 3 Gbit/s, couverture longue portée",
+                229.99, "Réseau", android.R.drawable.ic_menu_camera));
+
+        products.add(new Product(13, "Webcam Full HD",
+                "1080p, micro intégré, idéale pour visioconférence",
+                59.99, "Accessoires", android.R.drawable.ic_menu_compass));
     }
 
     public List<Product> getAllProducts() {
