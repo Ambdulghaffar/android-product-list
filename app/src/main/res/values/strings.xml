@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Liste Produits</string>
+    <string name="product_list_title">Liste des Produits</string>
+    <string name="product_details_title">Détails du Produit</string>
+    <string name="description_label">Description</string>
+    <string name="price_format">%.2f €</string>
+    <string name="select_product">Sélectionnez un produit pour voir les détails</string>
+</resources>
