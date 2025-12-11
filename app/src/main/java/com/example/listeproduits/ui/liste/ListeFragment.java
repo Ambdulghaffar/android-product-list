@@ -17,6 +17,7 @@ import com.example.listeproduits.adapter.ProductAdapter;
 import com.example.listeproduits.data.ProductRepository;
 import com.example.listeproduits.model.Product;
 import com.example.listeproduits.ui.details.DetailsFragment;
+import com.example.listeproduits.ui.liste.ListeFragmentDirections;
 
 public class ListeFragment extends Fragment {
 
@@ -73,9 +74,12 @@ public class ListeFragment extends Fragment {
     }
 
     private void navigateToDetails(Product product) {
-        Bundle bundle = new Bundle();
-        bundle.putInt("productId", product.getId());
-        Navigation.findNavController(getView())
-                .navigate(R.id.action_listeFragment_to_detailsFragment, bundle);
+        ListeFragmentDirections.ActionListeFragmentToDetailsFragment action =
+                ListeFragmentDirections.actionListeFragmentToDetailsFragment();
+        action.setProductId(product.getId());
+        Navigation.findNavController(requireView()).navigate(action);
     }
+
+
+
 }

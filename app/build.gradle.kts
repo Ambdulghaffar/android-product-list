@@ -2,6 +2,10 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
+apply(plugin = "androidx.navigation.safeargs")
+
+
+
 android {
     namespace = "com.example.listeproduits"
     compileSdk {
