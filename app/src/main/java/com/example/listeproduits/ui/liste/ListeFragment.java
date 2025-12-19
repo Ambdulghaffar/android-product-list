@@ -79,7 +79,4 @@ public class ListeFragment extends Fragment {
         action.setProductId(product.getId());
         Navigation.findNavController(requireView()).navigate(action);
     }
-
-
-
 }

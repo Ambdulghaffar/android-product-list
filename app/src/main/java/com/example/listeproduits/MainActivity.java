@@ -1,7 +1,6 @@
 package com.example.listeproduits;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.activity.OnBackPressedCallback;
@@ -16,7 +15,6 @@ import com.example.listeproduits.ui.details.DetailsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
     private NavController navController;
     private boolean isTwoPane;
 
@@ -25,13 +23,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d(TAG, "onCreate - Démarrage");
-
         // Vérifier si on est en mode tablette (deux panneaux)
         View detailsContainer = findViewById(R.id.detailsContainer);
         isTwoPane = detailsContainer != null && detailsContainer.getVisibility() == View.VISIBLE;
-
-        Log.d(TAG, "Mode tablette: " + isTwoPane);
 
         // Configuration de la navigation pour le mode téléphone uniquement
         if (!isTwoPane) {
@@ -46,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
-            Log.d(TAG, "Toolbar configurée");
         }
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
@@ -54,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (navHostFragment != null) {
             navController = navHostFragment.getNavController();
-            Log.d(TAG, "NavController obtenu");
 
             // Seulement si la toolbar existe
             if (toolbar != null) {
@@ -63,12 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 ).build();
 
                 NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-                Log.d(TAG, "NavigationUI configuré");
             }
-
-
-        } else {
-            Log.e(TAG, "NavHostFragment est NULL !");
         }
     }
 
@@ -79,20 +66,16 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.detailsContainer, new DetailsFragment())
                     .commit();
         }
-
         // Gérer le bouton retour en mode tablette
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                Log.d(TAG, "Mode tablette - Fermeture de l'app");
                 finish();
             }
         });
     }
-
     @Override
     public boolean onSupportNavigateUp() {
-        Log.d(TAG, "onSupportNavigateUp - Bouton flèche cliqué");
         if (!isTwoPane && navController != null) {
             return navController.navigateUp() || super.onSupportNavigateUp();
         }
